@@ -67,14 +67,17 @@ Lalu, penggunaan `cekHeartRate(int hr)` menerima detak jantung dalam BPM lalu me
   main()
   ```
 Bagian kode inilah yang bertugas untuk menentukan status akhir pasien dan kemudian menampilkan rekapnya secara keseluruhan serta mengatur alur utama dari programnya.
+
 a.  ```c enum Status statusKeseluruhan(struct Pasien *p)```
 Function ini menentukan status akhir untuk seorang pasien berdasarkan kondisi kondisi terburuk di antara seluruh parameternya. Misal saru parameter dianggap kritis maka itu sudah cukup untuk menjadikan pasien dikategorikan kritis secara keseluruhan terlepas dari kondisi parameter lainnya.
 - Jika ada satu parameter KRITIS --> pasien KRITIS
 - Jiika ada satu parameter WARNING --> pasien WARNING
 - Jika semua NORMAL --> pasien NORMAL
 Function ini digunakan oleh tampilanRekap().
+
 b. ```c void tampilRekap(struct Pasien pasien[], int jumlah```
 Ini yang akan menampilkan ringkasan kondisi seluruh pasien dalam satu tampilan setelah semua analisis individual selesai. Cara kerjanya secara sederhana itu dengan loop seluruh pasien menggunakan `for` kemudian memanggil `statusKeseluruhan()` lalu menghitung jumlah pasien sesuai kategori dan menampilkan ACII barnya.
+
 c. main()
 Function ini merupakan titik masuk eksekusi programnya --> mengatur seluruh alur dari input hingga output akhir. ALur kerjanya secara sederhana adalah ia pertama akan menampilkan header program -> input jumlah pasien -> melakukan loop input data pasien -> memanggil `analisisPasien()` untuk tiap pasien -> menampilkan rekap akhir menggunakan tampilRekap().
 
