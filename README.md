@@ -33,6 +33,37 @@ Lalu, penggunaan `cekHeartRate(int hr)` menerima detak jantung dalam BPM lalu me
 - BPM < 60 atau > 100 → **WARNING**
 - BPM 60–100 → **NORMAL**
 
+# **Fungsi Analisis Pasien**
+Fungsi analisis pasien, yaitu void `analisisPasien(struct Pasien *p)` adalah fungsi yang menerima pointer ke struct pasien di mana nilai tidak dikembalikan, melainkan hanya menampilkan output sehingga efisien secara memori. Data atau struct pasien dengan ukuran yang cukup besar, meliputi nama, umur, dan 5 data tanda vital menjadi penyebab penggunaan pointer *p. Tanpa pointer, program harus menyalin seluruh data  ke dalam fungsi setiap kali dipanggil sehingga boros memori. Dengan pointer, fungsi cukup menerima alamat memori tempat data pasien disimpan, lalu langsung membacanya dari sana.
+
+**Cara kerjanya:**
+**1. Panggil semua fungsi klasifikasi**
+```c
+td = cekTekananDarah(p->vital.sistolik, p->vital.diastolik);
+hr = cekHeartRate(p->vital.heartRate);
+suhu = cekSuhu(p->vital.suhu);
+spo2 = cekSpO2(p->vital.spo2);
+```
+Hasil klasifikasi disimpan ke variabel lokal `td`, `hr`, `suhu`, `spo2`.
+
+**2. Tampilkan hasil tiap parameter**
+Memanggil `tampilStatus()` untuk mencetak NORMAL/WARNING/KRITIS di samping nilai masing-masing parameter.
+
+**3. Tampilkan Visual Graph**
+Memanggil `tampilBar()` untuk 5 parameter bersamaan, yaitu sistolik, diastolik, heart rate, suhu, dan SpO2.
+
+**4. Alert Cerdas**
+- Jika ada parameter KRITIS: cetak peringatan darurat
+- Jika SpO2 dan HR keduanya WARNING: indikasi kelelahan atau gangguan respirasi
+- Jika hanya suhu WARNING: indikasi demam
+- Jika semua aman: kondisi stabil
+
+**5. Hitung Health Score**
+Dimulai dari 100 lalu dikurangi berdasarkan jumlah dan tingkat keparahan parameter yang bermasalah
+- WARNING: -10 poin
+- KRITIS: -25 atau -30 poin
+- Score ≥ 85 (SEHAT), ≥ 60 (PERLU PEMANTAUAN), < 60 (DARURAT MEDIS)
+
 
 
 
