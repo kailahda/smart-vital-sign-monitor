@@ -11,7 +11,6 @@ Tujuan dari project ini adalah:
 4. Menampilkan visualisasi data kesehatan menggunakan ASCII graph.
 5. Mengembangkan sistem peringatan medis sederhana berbasis rule-based analysis.
 
-# **Penjelasan Kode**
 ```c
 #include, #define MAX
 enum Status
