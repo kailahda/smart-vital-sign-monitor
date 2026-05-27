@@ -11,6 +11,7 @@ Tujuan dari project ini adalah:
 4. Menampilkan visualisasi data kesehatan menggunakan ASCII graph.
 5. Mengembangkan sistem peringatan medis sederhana berbasis rule-based analysis.
 
+# **Penjelasan Kode**
 ```c
 #include, #define MAX
 enum Status
@@ -32,7 +33,6 @@ Lalu, penggunaan `cekHeartRate(int hr)` menerima detak jantung dalam BPM lalu me
 - BPM < 60 atau > 100 → **WARNING**
 - BPM 60–100 → **NORMAL**
 
-# **Penjelasan Kode2**
 ```c
 cekSuhu()
 cekSpO2()
