@@ -59,6 +59,7 @@ Untuk mencetak tampilan status/kondisi pasien, coding ini menggunakan 2 fungsi :
 
 `tampilBar(char label[], int value, int max)` akan menampilkan grafik batang ASCII untuk setiap parameter. 
 **Cara kerjanya:**
+
 **1. Hitung panjang bar**
 `panjangBar = (value * 20)/max`
 
