@@ -61,8 +61,10 @@ Untuk mencetak tampilan status/kondisi pasien, coding ini menggunakan 2 fungsi :
 **Cara kerjanya:**
 **1. Hitung panjang bar**
 `panjangBar = (value * 20)/max`
+
 **2. Cetak #**
 _#_ akan dicetak sebanyak panjangBar menggunakan `for loop`
+
 **3. Cetak spasi kosong**
 Spasi kosong akan dicetak untuk sisa bar menggunakan `for loop` kedua
 
