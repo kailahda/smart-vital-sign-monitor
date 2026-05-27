@@ -33,6 +33,40 @@ Lalu, penggunaan `cekHeartRate(int hr)` menerima detak jantung dalam BPM lalu me
 - BPM < 60 atau > 100 → **WARNING**
 - BPM 60–100 → **NORMAL**
 
+# **Penjelasan Kode2**
+```c
+cekSuhu()
+cekSpO2()
+tampilStatus()
+tampilBar()
+```
+
+Fungsi cekSuhu(float suhu) digunakan untuk mengklasifikasikan suhu menjadi 3 kemungkinan kondisi berdasarkan penggunaan enum Status : 
+- Suhu < 35°C atau > 40°C -> **KRITIS**
+- Suhu ≥ 37.5°C -> **WARNING**
+- Selain itu -> **NORMAL**
+Kondisi KRITIS yang didapatkan setelah cek suhu menandakan pasien mengalami hipotermia(<35°C) atau hipetermia(>40°C), kondisi WARNING menunjukkan bahwa pasien sedang mengalami demam, sementara kondisi NORMAL menunjukkan keadaan pasien yang baik-baik saja.
+
+Fungsi cekSpO2(int spo2) akan mengklasifikasi nilai spo2 menjadi 3 kemungkinan kondisi berdasarkan penggunaan enum Status :
+- SpO2 < 90% -> **KRITIS**
+- SpO2 < 95% -> **WARNING**
+- Spo2 ≥ 95% -> **NORMAL**
+Kondisi KRITIS hasil cek nilai SpO2/Saturasi Oksigen Perifer, menunjukkan pasien mengalami hipoksia berat dan butuh perhatian medis segera, kondisi WARNING menunjukkan pasien mengalami hipoksia ringan dan perlu waspada, sementara kondisi NORMAL menunjukkan kondisi pasien yang baik-baik saja.
+
+Untuk mencetak tampilan status/kondisi pasien, coding ini menggunakan 2 fungsi : tampilStatus(enum Status s) dan tampilBar(char label[], int value, int max). 
+
+tampilStatus(enum Status s) akan menerima nilai enum dan mencetak status menggunakan _switch-case_.  Fungsi ini akan dipanggil saat melakukan analisis pasien, status akan ditampilkan untuk setiap parameter yang ada.
+
+tampilBar(char label[], int value, int max) akan menampilkan grafik batang ASCII untuk setiap parameter. 
+**Cara kerjanya:**
+**1. Hitung panjang bar**
+panjangBar = (value * 20)/max
+**2. Cetak #**
+_#_ akan dicetak sebanyak panjangBar menggunakan for loop
+**3. Cetak spasi kosong**
+Spasi kosong akan dicetak untuk sisa bar menggunakan for loop kedua
+
+
 # **Fungsi Analisis Pasien**
 Fungsi analisis pasien, yaitu void `analisisPasien(struct Pasien *p)` adalah fungsi yang menerima pointer ke struct pasien di mana nilai tidak dikembalikan, melainkan hanya menampilkan output sehingga efisien secara memori. Data atau struct pasien dengan ukuran yang cukup besar, meliputi nama, umur, dan 5 data tanda vital menjadi penyebab penggunaan pointer *p. Tanpa pointer, program harus menyalin seluruh data  ke dalam fungsi setiap kali dipanggil sehingga boros memori. Dengan pointer, fungsi cukup menerima alamat memori tempat data pasien disimpan, lalu langsung membacanya dari sana.
 
