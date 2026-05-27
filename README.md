@@ -73,6 +73,7 @@ Spasi kosong akan dicetak untuk sisa bar menggunakan `for loop` kedua
 Fungsi analisis pasien, yaitu void `analisisPasien(struct Pasien *p)` adalah fungsi yang menerima pointer ke struct pasien di mana nilai tidak dikembalikan, melainkan hanya menampilkan output sehingga efisien secara memori. Data atau struct pasien dengan ukuran yang cukup besar, meliputi nama, umur, dan 5 data tanda vital menjadi penyebab penggunaan pointer *p. Tanpa pointer, program harus menyalin seluruh data  ke dalam fungsi setiap kali dipanggil sehingga boros memori. Dengan pointer, fungsi cukup menerima alamat memori tempat data pasien disimpan, lalu langsung membacanya dari sana.
 
 **Cara kerjanya:**
+
 **1. Panggil semua fungsi klasifikasi**
 ```c
 td = cekTekananDarah(p->vital.sistolik, p->vital.diastolik);
