@@ -267,8 +267,8 @@ int main(){
         printf("\n\n===== INPUT DATA PASIEN %d =====\n", i+1);
 
         printf("Nama Pasien        : ");
-        scanf(" %[^\n]", pasien[i].nama);
-
+        scanf("%s[^\\n]", &pasien[i].nama);
+        
         printf("Umur               : ");
         scanf("%d", &pasien[i].umur);
 
